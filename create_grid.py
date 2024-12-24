@@ -59,9 +59,6 @@ uploaded_files = st.file_uploader("Upload images (8 total):", accept_multiple_fi
 # Select the center image
 center_image_file = st.file_uploader("Upload the center image:", type=["jpg", "jpeg", "png"])
 
-# Output file name
-output_path = st.text_input("Enter the output file path:", "grid_output.png")
-
 # Process images
 if st.button("Create Grid"):
     if len(uploaded_files) < 8:
