@@ -34,13 +34,10 @@ def create_image_grid(images, center_image, output_path, grid_size=3, cell_size=
 
     # Paste images onto the canvas
     for index, img in enumerate(processed_images):
-        if index == center_index:
-            continue
+        if index >= center_index:
+            index += 1  # Adjust index to skip the center position
         x = (index % grid_size) * cell_size
         y = (index // grid_size) * cell_size
-        if index > center_index:
-            x = ((index + 1) % grid_size) * cell_size
-            y = ((index + 1) // grid_size) * cell_size
         canvas.paste(img, (x, y))
 
     # Paste the center image
@@ -81,7 +78,7 @@ if st.button("Create Grid"):
             result = create_image_grid(images, center_image, output_path)
 
             # Display success and the resulting image
-            st.success(f"Grid created successfully!")
+            st.success("Grid created successfully!")
             st.image(result, caption="Generated Image Grid")
         except Exception as e:
             st.error(f"Error: {e}")
