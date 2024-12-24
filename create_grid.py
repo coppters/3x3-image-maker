@@ -45,8 +45,8 @@ def create_image_grid(folder_path, output_path, grid_size=3, cell_size=300):
 st.title("Image Grid Creator")
 st.write("Upload your images and ensure `pfp.jpg` is included for the center.")
 
-folder_path = st.text_input("Enter the folder path containing images:", "D:\PIXEL_ART\Portfolio\Year2024")
-output_path = st.text_input("Enter the output file path:", "grid_output.png")
+folder_path = st.text_input("Input Folder Path", r"D:\PIXEL_ART\Portfolio\Year2024")
+output_path = st.text_input("Output File Path", r"D:\PIXEL_ART\Portfolio\grid_output.png")
 
 if st.button("Create Grid"):
     try:
