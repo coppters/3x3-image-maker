@@ -57,10 +57,10 @@ st.title("Image Grid Creator")
 st.write("Upload your images and select one as the center.")
 
 # Upload multiple images
-uploaded_files = st.file_uploader("Upload images (9 total, including one for the center):", accept_multiple_files=True, type=["jpg", "jpeg", "png"])
+uploaded_files = st.file_uploader("Upload images (8 total):", accept_multiple_files=True, type=["jpg", "jpeg", "png"])
 
 # Select the center image
-center_image_file = st.file_uploader("Upload the center image (pfp.jpg):", type=["jpg", "jpeg", "png"])
+center_image_file = st.file_uploader("Upload the center image:", type=["jpg", "jpeg", "png"])
 
 # Output file name
 output_path = st.text_input("Enter the output file path:", "grid_output.png")
@@ -68,7 +68,7 @@ output_path = st.text_input("Enter the output file path:", "grid_output.png")
 # Process images
 if st.button("Create Grid"):
     if len(uploaded_files) < 8:
-        st.error("Please upload at least 8 images in addition to the center image.")
+        st.error("Please upload at least 8 images.")
     elif center_image_file is None:
         st.error("Please upload the center image.")
     else:
@@ -81,7 +81,7 @@ if st.button("Create Grid"):
             result = create_image_grid(images, center_image, output_path)
 
             # Display success and the resulting image
-            st.success(f"Grid created successfully! Saved at: {result}")
+            st.success(f"Grid created successfully!")
             st.image(result, caption="Generated Image Grid")
         except Exception as e:
             st.error(f"Error: {e}")
